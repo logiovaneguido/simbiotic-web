@@ -34,3 +34,6 @@ yarn-error.log*
 
 # Local previews
 .vite/
+
+# Claude Code (per-user local config)
+.claude/settings.local.json
