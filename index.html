@@ -1,231 +1,499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Simbiotic — Consultora de AI & Martech. Ayudamos a empresas líderes a crecer con inteligencia artificial, datos y tecnología de marketing." />
-  <title>Simbiotic — AI & Martech Consultancy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="SIMBIOTIC — Consultora de AI & Martech en Buenos Aires. Diseñamos y operamos sistemas de inteligencia artificial, datos y tecnología de marketing que crecen con tu negocio.">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+  <title>SIMBIOTIC — AI & Martech Consultancy</title>
+
+  <link rel="canonical" href="https://simbiotic.io/">
+  <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./public/pwa-512.png">
+  <link rel="apple-touch-icon" href="./public/pwa-512.png">
+
+  <!-- Anti-FOUC: aplica dark mode antes de renderizar si el usuario lo eligió. -->
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("simbiotic-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (_) {}
+    })();
+  </script>
+
+  <!-- Geist + Geist Mono via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="./css/main.css">
+
+  <!-- Open Graph (placeholder hasta generar OG image en Fase 6) -->
+  <meta property="og:title" content="SIMBIOTIC — AI & Martech Consultancy">
+  <meta property="og:description" content="Diseñamos sistemas de IA y martech que escalan. Consultora en Buenos Aires.">
+  <meta property="og:url" content="https://simbiotic.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/img/simbiotic-logo-blanco.png">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <nav class="nav" aria-label="Principal">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">simbiotic</a>
-      <div class="nav-links" id="navLinks">
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="cases.html" class="nav-link">Casos</a>
-        <a href="#equipo" class="nav-link">Equipo</a>
-        <a href="#contacto" class="nav-link nav-cta">Contacto</a>
+      <a href="/" class="nav-logo" aria-label="SIMBIOTIC — Inicio">
+        <img class="logo-dark"  src="./assets/img/simbiotic-logo-blanco.webp" alt="SIMBIOTIC" width="155" height="24">
+        <img class="logo-light" src="./assets/img/simbiotic-logo-negro.webp"  alt=""           width="155" height="24" aria-hidden="true">
+      </a>
+
+      <ul class="nav-links">
+        <!-- Mega: Servicios -->
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Servicios</button>
+          <div class="nav-mega nav-mega--services">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-feature" href="#servicios">
+                <span class="tag tag-accent">destacado</span>
+                <h3>AI Strategy</h3>
+                <p>Hojas de ruta para integrar IA en operaciones, marketing y producto. Foco en ROI y adopción real.</p>
+              </a>
+              <div>
+                <p class="nav-mega-list-title">capacidades</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="#servicios">
+                    <strong>Modelos predictivos</strong>
+                    <span>Forecasting, churn, LTV, propensión</span>
+                  </a></li>
+                  <li><a class="nav-mega-link" href="#servicios">
+                    <strong>Martech & Data</strong>
+                    <span>CDP, server-side tagging, atribución</span>
+                  </a></li>
+                  <li><a class="nav-mega-link" href="#servicios">
+                    <strong>Agentes autónomos</strong>
+                    <span>Reportes, briefs, optimización de bids</span>
+                  </a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="nav-mega-list-title">industrias</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="#proyectos"><strong>Retail</strong><span>E-commerce, retail media, pricing</span></a></li>
+                  <li><a class="nav-mega-link" href="#proyectos"><strong>Telco</strong><span>Churn, upsell, retención</span></a></li>
+                  <li><a class="nav-mega-link" href="#proyectos"><strong>Financial Services</strong><span>Fraud, scoring, growth</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Mega: Proyectos -->
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Proyectos</button>
+          <div class="nav-mega nav-mega--projects">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-tile" href="./casos/fravega-retail-media.html">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 01</span>
+                <h4 class="nav-mega-tile-title">Frávega Retail Media</h4>
+                <p class="nav-mega-tile-meta">Retail media network · 4.2× ROAS</p>
+              </a>
+              <a class="nav-mega-tile" href="./casos/fravega-media-mix.html">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 02</span>
+                <h4 class="nav-mega-tile-title">Frávega Media Mix Opt.</h4>
+                <p class="nav-mega-tile-meta">ML budget allocation · −23% CPS</p>
+              </a>
+              <a class="nav-mega-tile" href="./casos/izzi-churn.html">
+                <div class="nav-mega-tile-media" data-placeholder="izzi"></div>
+                <span class="nav-mega-tile-num">/ 03</span>
+                <h4 class="nav-mega-tile-title">izzi Churn</h4>
+                <p class="nav-mega-tile-meta">Predictive churn · −15% churn</p>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#clientes">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="#contacto">Hablar con el equipo</a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+        </button>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="container">
-      <div class="hero-content">
-        <p class="hero-label">AI & Martech Consultancy · Buenos Aires</p>
-        <h1 class="hero-title">Inteligencia<br>que convierte.</h1>
-        <p class="hero-sub">
-          Ayudamos a empresas líderes a crecer con inteligencia artificial,
-          datos y tecnología de marketing integrada.
+  <main>
+
+    <!-- ============================================================
+         HERO + MANIFIESTO
+         ============================================================ -->
+    <section class="hero hero-mesh" id="inicio">
+      <div class="container">
+        <span class="section-tag reveal">manifiesto · 2026</span>
+        <h1 class="hero-quote reveal">
+          La inteligencia artificial ya no es una ventaja competitiva: es <span class="accent">el nuevo estándar operativo</span>.
+        </h1>
+        <p class="hero-sub reveal">
+          Diseñamos y operamos sistemas de IA, datos y tecnología de marketing
+          para empresas que necesitan crecer en serio.
         </p>
-        <div class="hero-actions">
-          <a href="cases.html" class="btn btn-primary">Ver casos</a>
-          <a href="#contacto" class="btn btn-ghost">Hablar con el equipo</a>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary btn-lg btn-arrow" href="#proyectos">Ver casos</a>
+          <a class="btn btn-ghost btn-lg" href="#contacto">Hablar con el equipo</a>
         </div>
+        <p class="mono text-subtle reveal" style="margin-top: var(--space-8); font-size: var(--fs-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase;">
+          Buenos Aires · Argentina
+        </p>
       </div>
-      <p class="hero-geo">Buenos Aires — 2025</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- MÉTRICAS -->
-  <section class="metrics" id="metricas">
-    <div class="container">
-      <div class="metrics-grid">
-        <div class="metric">
-          <span class="metric-num">+22%</span>
-          <span class="metric-label">Aumento en conversiones</span>
+    <!-- ============================================================
+         AI & MARTECH — KPIs
+         ============================================================ -->
+    <section class="section" id="por-que">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">ai & martech</span>
+          <h2>¿Por qué ahora?</h2>
+          <p class="text-muted" style="font-size: var(--fs-lg);">
+            La personalización dejó de ser opcional. La velocidad se mide en milisegundos. Y los equipos que no incorporan IA en su operación se quedan atrás. Estos son resultados que conseguimos para nuestros clientes.
+          </p>
         </div>
-        <div class="metric-divider"></div>
-        <div class="metric">
-          <span class="metric-num">−18%</span>
-          <span class="metric-label">Reducción de costos de adquisición</span>
-        </div>
-        <div class="metric-divider"></div>
-        <div class="metric">
-          <span class="metric-num">×2</span>
-          <span class="metric-label">Proyectos escalados a producción</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SERVICIOS -->
-  <section class="services" id="servicios">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Servicios</span>
-        <h2 class="section-title">Lo que hacemos.</h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <span class="service-num">01</span>
-          <h3 class="service-name">AI Strategy</h3>
-          <p class="service-desc">
-            Diseñamos hojas de ruta de inteligencia artificial alineadas con tus
-            objetivos de negocio. Desde el diagnóstico de madurez hasta la
-            implementación de los primeros casos de uso con impacto real.
-          </p>
-        </div>
-        <div class="service-card">
-          <span class="service-num">02</span>
-          <h3 class="service-name">Martech & Data Integration</h3>
-          <p class="service-desc">
-            Conectamos tu stack de marketing con tus datos para tomar decisiones
-            más rápidas y precisas en cada touchpoint. Arquitectura, integración
-            y gobierno de datos orientados a la conversión.
-          </p>
-        </div>
-        <div class="service-card">
-          <span class="service-num">03</span>
-          <h3 class="service-name">Modelos Predictivos</h3>
-          <p class="service-desc">
-            Construimos modelos de machine learning para churn, LTV, propensión
-            de compra y optimización de medios. Modelos que llegan a producción
-            y generan valor medible.
-          </p>
-        </div>
-        <div class="service-card">
-          <span class="service-num">04</span>
-          <h3 class="service-name">GEO & Agentes Autónomos</h3>
-          <p class="service-desc">
-            Optimizamos tu presencia en motores de búsqueda generativos e
-            implementamos agentes de IA que automatizan procesos de negocio
-            complejos con intervención mínima.
-          </p>
+        <div class="kpi-row reveal">
+          <div class="kpi">
+            <span class="kpi-value"><span class="accent">+22%</span></span>
+            <span class="kpi-label">incremento en conversiones — modelos predictivos en e-commerce</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-value"><span class="accent">−18%</span></span>
+            <span class="kpi-label">reducción en costo de adquisición — audiencias automatizadas</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-value"><span class="accent">×2</span></span>
+            <span class="kpi-label">proyectos escalados a producción con el mismo equipo</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EQUIPO -->
-  <section class="team" id="equipo">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Equipo</span>
-        <h2 class="section-title">Las personas detrás.</h2>
+    <!-- ============================================================
+         SERVICIOS
+         ============================================================ -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">servicios</span>
+          <h2>Lo que hacemos.</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="card card-service reveal">
+            <span class="mono text-accent" style="font-size: var(--fs-xs); letter-spacing: var(--tracking-wide);">/ 01</span>
+            <h3 class="card-title" style="margin-top: var(--space-3);">AI Strategy</h3>
+            <p class="card-body">
+              Diseñamos hojas de ruta de IA alineadas con tus objetivos de negocio.
+              Diagnóstico de madurez, priorización de casos de uso, e implementación
+              de los primeros pilotos con impacto medible en 90 días.
+            </p>
+          </article>
+
+          <article class="card card-service reveal">
+            <span class="mono text-accent" style="font-size: var(--fs-xs); letter-spacing: var(--tracking-wide);">/ 02</span>
+            <h3 class="card-title" style="margin-top: var(--space-3);">Martech & Data Integration</h3>
+            <p class="card-body">
+              Conectamos tu stack de marketing con tus datos transaccionales.
+              CDP, server-side tagging, atribución multi-touch y pipelines que
+              alimentan decisiones en tiempo real, sin reescribir todo.
+            </p>
+          </article>
+
+          <article class="card card-service reveal">
+            <span class="mono text-accent" style="font-size: var(--fs-xs); letter-spacing: var(--tracking-wide);">/ 03</span>
+            <h3 class="card-title" style="margin-top: var(--space-3);">Modelos Predictivos</h3>
+            <p class="card-body">
+              Forecasting de demanda, churn, LTV, propensión de compra y
+              optimización de medios. Modelos productivizados con monitoreo
+              continuo, retraining automático y dashboards para el negocio.
+            </p>
+          </article>
+
+          <article class="card card-service reveal">
+            <span class="mono text-accent" style="font-size: var(--fs-xs); letter-spacing: var(--tracking-wide);">/ 04</span>
+            <h3 class="card-title" style="margin-top: var(--space-3);">Agentes Autónomos</h3>
+            <p class="card-body">
+              Agentes de IA que ejecutan procesos operativos: generación de
+              reportes y briefs, segmentación dinámica, optimización de bids
+              y pricing. Automatización con guardrails y supervisión humana.
+            </p>
+          </article>
+        </div>
       </div>
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-info">
+    </section>
+
+    <!-- ============================================================
+         PROYECTOS / CASOS
+         ============================================================ -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">proyectos</span>
+          <h2>Casos que dejan huella.</h2>
+          <p class="text-muted" style="font-size: var(--fs-lg);">
+            Tres ejemplos de cómo aplicamos IA y martech a problemas concretos
+            con resultados medibles.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <a class="case-card reveal" href="./casos/fravega-retail-media.html">
+            <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
+              <span class="mono text-subtle">Frávega</span>
+            </div>
+            <div class="case-card-body">
+              <span class="case-card-num">/ 01</span>
+              <h3 class="case-card-title">Frávega Retail Media</h3>
+              <p class="case-card-meta">Retail media network desde cero · 4.2× ROAS · 40+ marcas</p>
+            </div>
+          </a>
+
+          <a class="case-card reveal" href="./casos/fravega-media-mix.html">
+            <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
+              <span class="mono text-subtle">Frávega</span>
+            </div>
+            <div class="case-card-body">
+              <span class="case-card-num">/ 02</span>
+              <h3 class="case-card-title">Frávega Media Mix Opt.</h3>
+              <p class="case-card-meta">ML para asignación de presupuesto · −23% CPS</p>
+            </div>
+          </a>
+
+          <a class="case-card reveal" href="./casos/izzi-churn.html">
+            <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
+              <span class="mono text-subtle">izzi</span>
+            </div>
+            <div class="case-card-body">
+              <span class="case-card-num">/ 03</span>
+              <h3 class="case-card-title">izzi Churn Prediction</h3>
+              <p class="case-card-meta">Modelo predictivo de churn · −15% churn rate</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EQUIPO
+         ============================================================ -->
+    <section class="section" id="equipo">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">equipo</span>
+          <h2>Las personas detrás.</h2>
+          <p class="text-muted" style="font-size: var(--fs-lg);">
+            Un equipo chico de operadores con experiencia comprobada en
+            scaleups y empresas globales.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="./assets/img/team/guido.webp" alt="Foto de Guido Logiovane" width="280" height="280" loading="lazy">
+            </div>
+            <span class="team-role">Director Product & Marketing</span>
             <h3 class="team-name">Guido Logiovane</h3>
-            <p class="team-role">Director de Product & Marketing</p>
-          </div>
-          <p class="team-bio">
-            Ex Mercado Libre, ex Despegar. 15 años construyendo y escalando
-            negocios digitales en Latinoamérica desde producto, datos y
-            estrategia de growth.
-          </p>
-        </div>
-        <div class="team-card">
-          <div class="team-info">
+            <p class="team-bio">
+              15 años construyendo y escalando negocios digitales en LatAm.
+              Ex Mercado Libre, ex Despegar. Producto, datos y growth.
+            </p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="./assets/img/team/francisco.webp" alt="Foto de Francisco de Villalobos" width="280" height="280" loading="lazy">
+            </div>
+            <span class="team-role">Director AI & Machine Learning</span>
             <h3 class="team-name">Francisco de Villalobos</h3>
-            <p class="team-role">Director de AI & Machine Learning</p>
-          </div>
-          <p class="team-bio">
-            Lanzó Uber en Argentina y Uruguay. Especialización en Machine
-            Learning en UPenn/Wharton. Traduce matemática compleja en
-            productos que compiten.
-          </p>
-        </div>
-        <div class="team-card">
-          <div class="team-info">
+            <p class="team-bio">
+              Lanzó Uber en Argentina y Uruguay. Maestría en ML en UPenn/Wharton.
+              Traduce matemática compleja en producto que compite.
+            </p>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-photo">
+              <img src="./assets/img/team/manuel.webp" alt="Foto de Manuel Massonneau" width="280" height="280" loading="lazy">
+            </div>
+            <span class="team-role">Director Creativo</span>
             <h3 class="team-name">Manuel Massonneau</h3>
-            <p class="team-role">Director Creativo</p>
-          </div>
-          <p class="team-bio">
-            Ex McCann. Dirigió estrategias creativas para Coca-Cola, Adidas
-            y Audi en mercados globales. Garantiza que la tecnología comunique
-            con la misma fuerza que convierte.
+            <p class="team-bio">
+              Ex McCann. Estrategias creativas para Coca-Cola, Adidas y Audi
+              en mercados globales. La tecnología comunica con la fuerza con que convierte.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLIENTES
+         ============================================================ -->
+    <section class="section" id="clientes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">clientes</span>
+          <h2>Quiénes confían.</h2>
+        </div>
+
+        <div class="clients-strip reveal">
+          <div class="client-logo"><img src="./assets/img/clients/fravega.svg" alt="Frávega" loading="lazy"></div>
+          <div class="client-logo"><img src="./assets/img/clients/fmf.webp"    alt="FMF — Federación Mexicana de Fútbol" loading="lazy"></div>
+          <div class="client-logo"><img src="./assets/img/clients/banhi.webp"  alt="BANHI" loading="lazy"></div>
+          <div class="client-logo"><img src="./assets/img/clients/kuati.webp"  alt="Kuati" loading="lazy"></div>
+          <div class="client-logo"><img src="./assets/img/clients/trent.webp"  alt="Trent Craft Beer" loading="lazy"></div>
+          <div class="client-logo"><img src="./assets/img/clients/bierhaus.webp" alt="Bierhaus" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO
+         ============================================================ -->
+    <section class="section hero-mesh" id="contacto">
+      <div class="container grid-2" style="gap: var(--space-8); align-items: start;">
+        <div class="reveal">
+          <span class="section-tag">contacto</span>
+          <h2 style="font-size: var(--fs-4xl); letter-spacing: var(--tracking-tight); margin-block: var(--space-3);">
+            Construyamos algo<br>extraordinario.
+          </h2>
+          <p class="text-muted" style="font-size: var(--fs-lg); max-width: 40ch;">
+            Contanos qué problema querés resolver. Te respondemos en menos de 48 horas con un primer punto de vista.
+          </p>
+          <p class="text-muted" style="margin-top: var(--space-5); font-size: var(--fs-sm);">
+            O escribinos directo a <a href="mailto:hola@simbiotic.io" class="text-accent">hola@simbiotic.io</a>
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CLIENTES -->
-  <section class="clients" id="clientes">
-    <div class="container">
-      <span class="section-tag">Clientes</span>
-      <div class="clients-list">
-        <span class="client-name">Frávega</span>
-        <span class="client-sep">—</span>
-        <span class="client-name">izzi</span>
+        <form class="reveal" id="contact-form" action="mailto:hola@simbiotic.io" method="POST" enctype="text/plain" style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <div class="field">
+            <label class="field-label" for="cf-name">Nombre</label>
+            <input class="field-input" id="cf-name" name="name" type="text" placeholder="Cómo te llamás" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label class="field-label" for="cf-email">Email</label>
+            <input class="field-input" id="cf-email" name="email" type="email" placeholder="tu@empresa.com" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label class="field-label" for="cf-company">Empresa <span class="text-subtle" style="font-weight: 400;">(opcional)</span></label>
+            <input class="field-input" id="cf-company" name="company" type="text" placeholder="¿De dónde nos escribís?" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label class="field-label" for="cf-message">Mensaje</label>
+            <textarea class="field-textarea" id="cf-message" name="message" placeholder="Contanos en qué estás pensando" required></textarea>
+          </div>
+          <!-- Honeypot anti-spam (oculto al usuario, visible para bots) -->
+          <div style="position: absolute; left: -9999px;" aria-hidden="true">
+            <label>No completes este campo: <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <button class="btn btn-primary btn-lg btn-arrow" type="submit">Enviar</button>
+          <p id="cf-status" class="text-muted" style="font-size: var(--fs-sm); min-height: 1.5em;" role="status" aria-live="polite"></p>
+        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="cta" id="contacto">
-    <div class="container">
-      <div class="cta-inner">
-        <p class="cta-label">¿Listo para escalar?</p>
-        <h2 class="cta-title">Construyamos algo<br>extraordinario.</h2>
-        <a href="mailto:hola@simbiotic.ai" class="btn btn-primary btn-lg">Escribinos</a>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- FOOTER -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="index.html" class="footer-logo">simbiotic</a>
-        <div class="footer-links">
-          <a href="#servicios" class="footer-link">Servicios</a>
-          <a href="cases.html" class="footer-link">Casos</a>
-          <a href="#equipo" class="footer-link">Equipo</a>
-          <a href="#contacto" class="footer-link">Contacto</a>
-        </div>
-        <p class="footer-copy">© 2025 Simbiotic. Buenos Aires, Argentina.</p>
-      </div>
+    <div class="container footer-inner">
+      <a href="/" class="nav-logo" aria-label="SIMBIOTIC">
+        <img class="logo-dark"  src="./assets/img/simbiotic-logo-blanco.webp" alt="SIMBIOTIC" width="120" height="19">
+        <img class="logo-light" src="./assets/img/simbiotic-logo-negro.webp"  alt=""           width="120" height="19" aria-hidden="true">
+      </a>
+      <nav aria-label="Footer">
+        <ul style="display: flex; gap: var(--space-5); list-style: none; padding: 0; margin: 0; flex-wrap: wrap;">
+          <li><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li><a class="nav-link" href="#equipo">Equipo</a></li>
+          <li><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <span class="footer-meta">© 2026 SIMBIOTIC · Buenos Aires</span>
     </div>
   </footer>
 
+  <script src="./js/theme-toggle.js" defer></script>
+  <script src="./js/nav.js" defer></script>
   <script>
-    // Nav scroll effect
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 30);
-    }, { passive: true });
-
-    // Mobile menu
-    const toggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      toggle.classList.toggle('active', isOpen);
-      toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
-    });
-
-    // Close mobile menu on link click
-    navLinks.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.classList.remove('active');
+    // ============================================================
+    // Form: progressive enhancement.
+    // - Sin JS: el form usa action="mailto:" y abre el cliente de email.
+    // - Con JS: en Fase 5 reemplazamos por fetch a /api/contact.
+    // - Por ahora: validación básica + mensaje de "abriendo email".
+    // ============================================================
+    document.addEventListener("DOMContentLoaded", function () {
+      var form = document.getElementById("contact-form");
+      var status = document.getElementById("cf-status");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        // Honeypot check
+        if (form.elements.website && form.elements.website.value) {
+          e.preventDefault();
+          return;
+        }
+        if (status) status.textContent = "Abriendo tu cliente de email…";
+        // Fase 5: aquí va e.preventDefault() + fetch('/api/contact', ...)
       });
     });
-  </script>
 
+    // Smooth scroll para anchor links del nav (cierra mega-menu si abierto)
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var id = link.getAttribute("href").slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Cerrar mega-menus
+      document.querySelectorAll(".nav-item--mega.is-open").forEach(function (i) {
+        i.classList.remove("is-open");
+        var btn = i.querySelector(".nav-link");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+      // Cerrar mobile drawer
+      var nav = document.querySelector(".nav");
+      if (nav && nav.classList.contains("is-open")) {
+        nav.classList.remove("is-open");
+        var t = nav.querySelector(".nav-toggle");
+        if (t) { t.classList.remove("is-open"); t.setAttribute("aria-expanded", "false"); }
+        document.body.style.overflow = "";
+      }
+    });
+  </script>
 </body>
 </html>
