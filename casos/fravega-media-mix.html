@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Cómo redujimos −23% el costo por venta de Frávega con un modelo de Media Mix Modeling bayesiano que asigna inversión publicitaria entre TV, digital, radio y OOH.">
+  <meta name="description" content="Cómo calibramos la atribución de medios digitales de Frávega con experimentos GEO para medir el impacto incremental real de cada canal — branding masivo y performance.">
   <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 
-  <title>Frávega Media Mix Optimization — SIMBIOTIC</title>
+  <title>Frávega · Atribución Calibrada con GEO Experiments — SIMBIOTIC</title>
   <link rel="canonical" href="https://simbiotic.io/casos/fravega-media-mix.html">
   <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon-16.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../public/pwa-512.png">
@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="../css/main.css">
 
-  <meta property="og:title" content="Frávega Media Mix Optimization — SIMBIOTIC">
-  <meta property="og:description" content="Cómo aplicamos ML bayesiano para optimizar millones en inversión publicitaria.">
+  <meta property="og:title" content="Frávega · Atribución Calibrada con GEO Experiments — SIMBIOTIC">
+  <meta property="og:description" content="Cómo medir el impacto incremental real de cada canal de medios digitales con experimentos geográficos.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://simbiotic.io/casos/fravega-media-mix.html">
   <meta property="og:image" content="../assets/img/simbiotic-logo-blanco.png">
@@ -82,14 +82,14 @@
               <a class="nav-mega-tile" href="./fravega-media-mix.html" aria-current="page">
                 <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
                 <span class="nav-mega-tile-num">/ 02</span>
-                <h4 class="nav-mega-tile-title">Frávega Media Mix Opt.</h4>
-                <p class="nav-mega-tile-meta">ML budget allocation · −23% CPS</p>
+                <h4 class="nav-mega-tile-title">Frávega · Atribución</h4>
+                <p class="nav-mega-tile-meta">GEO experiments · branding + performance</p>
               </a>
-              <a class="nav-mega-tile" href="./izzi-churn.html">
-                <div class="nav-mega-tile-media" data-placeholder="izzi"></div>
+              <a class="nav-mega-tile" href="./bierhaus-pagos.html">
+                <div class="nav-mega-tile-media" data-placeholder="Bierhaus"></div>
                 <span class="nav-mega-tile-num">/ 03</span>
-                <h4 class="nav-mega-tile-title">izzi Churn</h4>
-                <p class="nav-mega-tile-meta">Predictive churn · −15% churn</p>
+                <h4 class="nav-mega-tile-title">Bierhaus · Agente de Pagos</h4>
+                <p class="nav-mega-tile-meta">Back-office en piloto automático</p>
               </a>
             </div>
           </div>
@@ -116,12 +116,13 @@
       <a href="../#proyectos" class="case-back">← Proyectos</a>
       <div class="case-page-hero-meta">
         <span class="tag">/ 02 · caso</span>
-        <span class="tag tag-accent">Frávega · Media Mix Modeling</span>
+        <span class="tag tag-accent">Frávega · Atribución · GEO Experiments</span>
       </div>
-      <h1>Optimizar millones en inversión publicitaria con machine learning.</h1>
+      <h1>Cuando los reportes de las plataformas mienten, hay que correr experimentos.</h1>
       <p class="case-lead">
-        Un modelo bayesiano que mide la contribución incremental de cada
-        canal y permite reasignar presupuesto con evidencia, no con intuición.
+        Calibramos el modelo de atribución de medios digitales de Frávega
+        con experimentos geográficos para medir el lift real de cada canal —
+        en branding masivo y en performance.
       </p>
       <div class="case-page-media" data-label="Frávega · 2024"></div>
     </section>
@@ -132,32 +133,40 @@
         <article class="case-section">
           <h2>Desafío</h2>
           <p>
-            Con un presupuesto de medios distribuido entre TV, digital, radio y
-            OOH, las decisiones de inversión se tomaban con base en intuición
-            histórica y reportes de plataformas que sobreestiman su propio
-            impacto. Sin un modelo de atribución neutral, era imposible saber
-            qué canales realmente movían la aguja en ventas.
+            Frávega invierte millones en medios digitales, combinando campañas
+            de branding masivas con campañas de performance. Pero los reportes
+            de cada plataforma sobreestiman sistemáticamente su propio impacto:
+            cada una se atribuye conversiones que habrían ocurrido igual sin ella.
           </p>
           <p>
-            La pregunta de negocio era directa: ¿cuánto vale incrementalmente
-            cada peso invertido en cada canal? Sin esa respuesta, optimizar
-            era un ejercicio de fe.
+            Sin una medición causal neutral era imposible saber qué porción de
+            la inversión generaba valor incremental real, y qué porción
+            simplemente cobraba ventas que ya estaban en marcha. Optimizar
+            sobre datos sesgados es optimizar para parecer bien en los
+            dashboards, no para crecer en serio.
           </p>
         </article>
 
         <article class="case-section">
           <h2>Solución</h2>
           <p>
-            Construimos un modelo de Media Mix Modeling (MMM) con técnicas de
-            machine learning bayesiano que analiza la contribución incremental
-            de cada canal al revenue, controlando por estacionalidad, precios,
-            competencia y variables macroeconómicas.
+            En vez de construir un modelo de atribución desde cero,
+            <strong>calibramos el que ya operaba en producción</strong> usando
+            evidencia causal de experimentos reales.
           </p>
           <p>
-            Implementamos un simulador de escenarios que permite proyectar el
-            impacto de cambios presupuestarios antes de ejecutarlos, y un
-            proceso de reentrenamiento mensual para mantener el modelo
-            actualizado contra la realidad cambiante del mercado.
+            Diseñamos un programa de <strong>geo-experiments</strong>: pausar
+            o intensificar la inversión publicitaria en regiones específicas
+            y medir el lift en ventas contra regiones de control. Para diseñar
+            esos experimentos con rigor estadístico, modelamos
+            <strong>funciones sintéticas</strong> que actúan como baseline
+            contrafactual — el "qué hubiera pasado si" medible.
+          </p>
+          <p>
+            Los resultados experimentales se incorporan como input al modelo
+            de atribución, que pasa a guiar las decisiones de inversión tanto
+            en branding masivo como en performance, sustentado en evidencia
+            causal y no en lo que cada plataforma se autoatribuye.
           </p>
         </article>
       </div>
@@ -166,20 +175,20 @@
         <h2>Resultados</h2>
         <div class="case-results-grid">
           <div class="result">
-            <span class="result-num">−23%</span>
-            <span class="result-label">costo por venta tras optimización</span>
+            <span class="result-num">Modelo</span>
+            <span class="result-label">de atribución calibrado contra evidencia causal</span>
           </div>
           <div class="result">
-            <span class="result-num">+31%</span>
-            <span class="result-label">precisión en forecasting de demanda</span>
+            <span class="result-num">GEO tests</span>
+            <span class="result-label">como input continuo a las decisiones de inversión</span>
           </div>
           <div class="result">
-            <span class="result-num">Mensual</span>
-            <span class="result-label">ciclo de actualización del modelo</span>
+            <span class="result-num">Branding + Performance</span>
+            <span class="result-label">medidos con la misma vara de incrementalidad</span>
           </div>
           <div class="result">
-            <span class="result-num">4 canales</span>
-            <span class="result-label">TV, digital, radio y OOH integrados</span>
+            <span class="result-num">Programa</span>
+            <span class="result-label">de experimentación continuo, no un proyecto único</span>
           </div>
         </div>
       </aside>
@@ -203,14 +212,14 @@
               <p class="case-card-meta">Retail media network desde cero · 4.2× ROAS</p>
             </div>
           </a>
-          <a class="case-card" href="./izzi-churn.html">
+          <a class="case-card" href="./bierhaus-pagos.html">
             <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
-              <span class="mono text-subtle">izzi</span>
+              <span class="mono text-subtle">Bierhaus</span>
             </div>
             <div class="case-card-body">
               <span class="case-card-num">/ 03</span>
-              <h3 class="case-card-title">izzi Churn Prediction</h3>
-              <p class="case-card-meta">Modelo predictivo de churn · −15% churn rate</p>
+              <h3 class="case-card-title">Bierhaus · Agente de Pagos</h3>
+              <p class="case-card-meta">Back-office en piloto automático con un agente autónomo</p>
             </div>
           </a>
         </div>

@@ -420,6 +420,19 @@
   color: var(--text-muted);
 }
 
+/* Active state: marca el caso actual en el mega-menu */
+.nav-mega-tile[aria-current="page"] .nav-mega-tile-media {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+.nav-mega-tile[aria-current="page"] .nav-mega-tile-num,
+.nav-mega-tile[aria-current="page"] .nav-mega-tile-title {
+  color: var(--accent);
+}
+.nav-mega-tile[aria-current="page"] .nav-mega-tile-num::before {
+  content: "● ";
+}
+
 /* Project tile (con thumbnail visual) */
 .nav-mega-tile {
   display: flex;
