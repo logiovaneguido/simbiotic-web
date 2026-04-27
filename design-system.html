@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIMBIOTIC · Design System</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Anti-FOUC: aplica el tema ANTES de renderizar. Inline a propósito. -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("simbiotic-theme");
+        if (stored === "dark" || stored === "light") {
+          document.documentElement.setAttribute("data-theme", stored);
+        }
+        // Si no hay preferencia guardada, dejamos que CSS @media (prefers-color-scheme)
+        // y el default (dark) se encarguen. No tocamos el atributo.
+      } catch (_) { /* localStorage puede fallar en privado/iframes */ }
+    })();
+  </script>
+
+  <!-- Geist + Geist Mono via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="./css/main.css">
+  <style>
+    /* Solo para esta página de prueba */
+    .ds-block { padding-block: var(--space-8); border-bottom: 1px dashed var(--border-subtle); }
+    .ds-block:last-child { border-bottom: none; }
+    .ds-block h2 { margin-bottom: var(--space-5); }
+    .ds-grid { display: grid; gap: var(--space-5); }
+    .ds-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+    .swatch {
+      width: 100%; aspect-ratio: 3/2;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      display: flex; align-items: flex-end;
+      padding: var(--space-3);
+      font-family: var(--font-mono); font-size: var(--fs-xs);
+      color: var(--text-muted);
+    }
+    .type-row { display: flex; align-items: baseline; gap: var(--space-5); padding-block: var(--space-3); border-bottom: 1px solid var(--border-subtle); }
+    .type-row .label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-subtle); width: 90px; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav reusable -->
+  <nav class="nav" aria-label="Principal">
+    <div class="nav-inner">
+      <a href="./design-system.html" class="nav-logo" aria-label="SIMBIOTIC">
+        <img class="logo-dark"  src="./assets/img/simbiotic-logo-blanco.webp" alt="SIMBIOTIC" width="155" height="24">
+        <img class="logo-light" src="./assets/img/simbiotic-logo-negro.webp"  alt=""           width="155" height="24" aria-hidden="true">
+      </a>
+
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#typography">Tipografía</a></li>
+        <li><a class="nav-link" href="#colors">Colores</a></li>
+        <li><a class="nav-link" href="#components">Componentes</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="#">Hablar con el equipo</a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <header class="ds-block">
+      <span class="section-tag">design system · v0.1</span>
+      <h1>Sistema de diseño SIMBIOTIC</h1>
+      <p style="margin-top: var(--space-4); max-width: 60ch;">
+        Página interna de validación. Probá el toggle dark/light arriba a la derecha:
+        debería seguir tu OS por default, y al hacer click guardar tu preferencia en localStorage.
+      </p>
+    </header>
+
+    <!-- ============== Tipografía ============== -->
+    <section id="typography" class="ds-block">
+      <span class="section-tag">tipografía</span>
+      <h2>Type scale</h2>
+      <div class="ds-grid">
+        <div class="type-row"><span class="label">display</span><span style="font-size: var(--fs-display); line-height: 1; letter-spacing: var(--tracking-tighter); font-weight: 600;">simbiotic</span></div>
+        <div class="type-row"><span class="label">5xl / h1</span><span style="font-size: var(--fs-5xl); line-height: 1.1; font-weight: 600;">Inteligencia que convierte</span></div>
+        <div class="type-row"><span class="label">4xl / h2</span><span style="font-size: var(--fs-4xl); font-weight: 600;">Construido para escalar</span></div>
+        <div class="type-row"><span class="label">3xl / h3</span><span style="font-size: var(--fs-3xl); font-weight: 600;">Modelos predictivos</span></div>
+        <div class="type-row"><span class="label">2xl / h4</span><span style="font-size: var(--fs-2xl); font-weight: 600;">AI Strategy</span></div>
+        <div class="type-row"><span class="label">xl</span><span style="font-size: var(--fs-xl);">Sistemas martech integrados</span></div>
+        <div class="type-row"><span class="label">lg</span><span style="font-size: var(--fs-lg);">Texto de subtítulo / lead</span></div>
+        <div class="type-row"><span class="label">base</span><span style="font-size: var(--fs-base);">Texto base 16px (Geist regular)</span></div>
+        <div class="type-row"><span class="label">sm</span><span style="font-size: var(--fs-sm); color: var(--text-muted);">Texto secundario / metadata</span></div>
+        <div class="type-row"><span class="label">xs · mono</span><span class="mono" style="font-size: var(--fs-xs); color: var(--accent); letter-spacing: var(--tracking-wide); text-transform: uppercase;">/ 01 · CASO DESTACADO</span></div>
+      </div>
+    </section>
+
+    <!-- ============== Colores ============== -->
+    <section id="colors" class="ds-block">
+      <span class="section-tag">paleta</span>
+      <h2>Colores</h2>
+      <div class="grid-4" style="margin-bottom: var(--space-6);">
+        <div class="swatch" style="background: var(--bg);">--bg</div>
+        <div class="swatch" style="background: var(--surface);">--surface</div>
+        <div class="swatch" style="background: var(--surface-elevated);">--surface-elevated</div>
+        <div class="swatch" style="background: var(--surface-hover);">--surface-hover</div>
+        <div class="swatch" style="background: var(--border-subtle);">--border-subtle</div>
+        <div class="swatch" style="background: var(--border);">--border</div>
+        <div class="swatch" style="background: var(--border-strong);">--border-strong</div>
+        <div class="swatch" style="background: var(--accent); color: var(--text-on-accent);">--accent</div>
+      </div>
+      <p>Texto base · <span class="text-muted">muted</span> · <span class="text-subtle">subtle</span> · <span class="text-accent">accent</span></p>
+    </section>
+
+    <!-- ============== Botones ============== -->
+    <section id="components" class="ds-block">
+      <span class="section-tag">componentes</span>
+      <h2>Botones</h2>
+      <div class="ds-row">
+        <a class="btn btn-primary" href="#">Primary</a>
+        <a class="btn btn-primary btn-arrow" href="#">Ver casos</a>
+        <a class="btn btn-primary btn-lg" href="#">Primary large</a>
+        <a class="btn btn-ghost" href="#">Ghost</a>
+        <a class="btn btn-ghost btn-arrow" href="#">Más info</a>
+        <a class="btn btn-ghost btn-sm" href="#">Ghost small</a>
+      </div>
+    </section>
+
+    <!-- ============== Tags ============== -->
+    <section class="ds-block">
+      <h2>Tags</h2>
+      <div class="ds-row">
+        <span class="tag">/ servicios</span>
+        <span class="tag tag-accent">retail media</span>
+        <span class="tag">predictive · ML</span>
+      </div>
+    </section>
+
+    <!-- ============== KPIs ============== -->
+    <section class="ds-block">
+      <h2>KPIs</h2>
+      <div class="kpi-row">
+        <div class="kpi">
+          <span class="kpi-value"><span class="accent">+22%</span></span>
+          <span class="kpi-label">incremento en conversiones</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-value"><span class="accent">−18%</span></span>
+          <span class="kpi-label">reducción de costos</span>
+        </div>
+        <div class="kpi">
+          <span class="kpi-value"><span class="accent">×2</span></span>
+          <span class="kpi-label">proyectos con mismo equipo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== Cards ============== -->
+    <section class="ds-block">
+      <h2>Service cards</h2>
+      <div class="grid-2">
+        <article class="card card-service">
+          <h3 class="card-title">AI Strategy</h3>
+          <p class="card-body">Diseñamos hojas de ruta para integrar IA en operaciones, marketing y producto. Foco en ROI y adopción real.</p>
+        </article>
+        <article class="card card-service">
+          <h3 class="card-title">Modelos predictivos</h3>
+          <p class="card-body">Forecasting de demanda, churn, LTV y propensión. Modelos productivizados con monitoreo y reentreno.</p>
+        </article>
+        <article class="card card-service">
+          <h3 class="card-title">Martech & Data</h3>
+          <p class="card-body">CDP, server-side tagging, pipelines, atribución multi-touch. Stack que escala sin tirar todo abajo.</p>
+        </article>
+        <article class="card card-service">
+          <h3 class="card-title">Agentes autónomos</h3>
+          <p class="card-body">Agentes que ejecutan tareas operativas: reportes, briefs, segmentación, optimización de bids.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============== Case cards ============== -->
+    <section class="ds-block">
+      <h2>Project cards</h2>
+      <div class="grid-3">
+        <a class="case-card" href="#">
+          <div class="case-card-media">
+            <span class="mono text-subtle">[ media ]</span>
+          </div>
+          <div class="case-card-body">
+            <span class="case-card-num">/ 01</span>
+            <h3 class="case-card-title">Frávega Retail Media</h3>
+            <p class="case-card-meta">Retail media network · 6 meses · 4.2× ROAS</p>
+          </div>
+        </a>
+        <a class="case-card" href="#">
+          <div class="case-card-media">
+            <span class="mono text-subtle">[ media ]</span>
+          </div>
+          <div class="case-card-body">
+            <span class="case-card-num">/ 02</span>
+            <h3 class="case-card-title">Frávega Media Mix Opt.</h3>
+            <p class="case-card-meta">ML budget allocation · −23% CPS</p>
+          </div>
+        </a>
+        <a class="case-card" href="#">
+          <div class="case-card-media">
+            <span class="mono text-subtle">[ media ]</span>
+          </div>
+          <div class="case-card-body">
+            <span class="case-card-num">/ 03</span>
+            <h3 class="case-card-title">izzi Churn</h3>
+            <p class="case-card-meta">Predictive churn · −15% churn rate</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============== Team ============== -->
+    <section class="ds-block">
+      <h2>Equipo</h2>
+      <div class="grid-3">
+        <article class="team-card">
+          <div class="team-photo"><img src="./assets/img/team/guido.webp" alt="Guido Logiovane" width="280" height="280" loading="lazy"></div>
+          <span class="team-role">Director Product & Marketing</span>
+          <h3 class="team-name">Guido Logiovane</h3>
+          <p class="team-bio">15+ años en producto y growth. Ex-Despegar, MercadoLibre.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-photo"><img src="./assets/img/team/francisco.webp" alt="Francisco de Villalobos" width="280" height="280" loading="lazy"></div>
+          <span class="team-role">Director AI & Machine Learning</span>
+          <h3 class="team-name">Francisco de Villalobos</h3>
+          <p class="team-bio">Maestría UPenn / Wharton. Ex-Uber, PedidosYa.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-photo"><img src="./assets/img/team/manuel.webp" alt="Manuel Massonneau" width="280" height="280" loading="lazy"></div>
+          <span class="team-role">Director Creativo</span>
+          <h3 class="team-name">Manuel Massonneau</h3>
+          <p class="team-bio">15 años en startups y scaleups. Ex-MercadoLibre, Despegar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============== Clientes ============== -->
+    <section class="ds-block">
+      <h2>Clients strip</h2>
+      <div class="clients-strip">
+        <div class="client-logo"><img src="./assets/img/clients/fravega.svg" alt="Frávega"></div>
+        <div class="client-logo"><img src="./assets/img/clients/fmf.webp" alt="FMF"></div>
+        <div class="client-logo"><img src="./assets/img/clients/banhi.webp" alt="BANHI"></div>
+        <div class="client-logo"><img src="./assets/img/clients/kuati.webp" alt="Kuati"></div>
+        <div class="client-logo"><img src="./assets/img/clients/trent.webp" alt="Trent Craft Beer"></div>
+        <div class="client-logo"><img src="./assets/img/clients/bierhaus.webp" alt="Bierhaus"></div>
+      </div>
+    </section>
+
+    <!-- ============== Form ============== -->
+    <section class="ds-block">
+      <h2>Form fields</h2>
+      <form class="ds-grid" style="max-width: 520px;" onsubmit="event.preventDefault();">
+        <div class="field">
+          <label class="field-label" for="ds-name">Nombre</label>
+          <input class="field-input" id="ds-name" type="text" placeholder="Cómo te llamás" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="ds-email">Email</label>
+          <input class="field-input" id="ds-email" type="email" placeholder="tu@empresa.com" required>
+        </div>
+        <div class="field">
+          <label class="field-label" for="ds-msg">Mensaje</label>
+          <textarea class="field-textarea" id="ds-msg" placeholder="Contanos en qué estás pensando" required></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg btn-arrow" type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- ============== Hero preview ============== -->
+    <section class="ds-block hero-mesh">
+      <h2>Hero preview</h2>
+      <div class="hero" style="min-height: auto;">
+        <span class="section-tag">manifiesto</span>
+        <h3 class="hero-quote">
+          La inteligencia artificial ya no es una ventaja competitiva:<br>
+          es <span class="accent">el nuevo estándar operativo</span>.
+        </h3>
+        <p class="hero-sub">
+          Diseñamos sistemas que convierten datos en decisiones, modelos en producto, e ideas en operación real.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg btn-arrow" href="#">Ver casos</a>
+          <a class="btn btn-ghost btn-lg" href="#">Hablar con el equipo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-meta">SIMBIOTIC · Buenos Aires · 2026</span>
+      <span class="footer-meta">design-system v0.1</span>
+    </div>
+  </footer>
+
+  <script src="./js/theme-toggle.js" defer></script>
+  <script>
+    // Mobile nav toggle (mínimo viable para preview)
+    document.addEventListener("DOMContentLoaded", function () {
+      var nav = document.querySelector(".nav");
+      var btn = document.querySelector(".nav-toggle");
+      if (btn && nav) btn.addEventListener("click", function () {
+        nav.classList.toggle("is-open");
+        btn.classList.toggle("is-open");
+        var open = nav.classList.contains("is-open");
+        btn.setAttribute("aria-expanded", String(open));
+      });
+    });
+  </script>
+</body>
+</html>

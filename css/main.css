@@ -1,0 +1,112 @@
+/* ============================================================
+   SIMBIOTIC · main.css
+   Punto único de entrada. Importa el sistema completo
+   en orden cascada-friendly.
+   ============================================================ */
+
+@import url("./tokens.css");
+@import url("./base.css");
+@import url("./components.css");
+
+/* ---------- Page-specific layout helpers que usan
+   componentes pero no son componentes en sí. ----------- */
+
+/* Hero */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100dvh - var(--nav-h));
+  padding-block: var(--space-9) var(--space-8);
+  overflow: hidden;
+}
+.hero-quote {
+  font-size: var(--fs-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--text);
+  max-width: 18ch;
+}
+.hero-quote .accent { color: var(--accent); }
+.hero-sub {
+  margin-top: var(--space-5);
+  font-size: var(--fs-lg);
+  color: var(--text-muted);
+  max-width: 60ch;
+  line-height: var(--lh-relaxed);
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+/* KPI strip horizontal con dividers */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-block: 1px solid var(--border-subtle);
+}
+.kpi-row .kpi {
+  padding: var(--space-6);
+  border-right: 1px solid var(--border-subtle);
+}
+.kpi-row .kpi:last-child { border-right: none; }
+@media (max-width: 768px) {
+  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-row .kpi {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .kpi-row .kpi:last-child { border-bottom: none; }
+}
+
+/* Grids genéricas */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5); }
+@media (max-width: 960px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Section header (numeración + título) */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+  max-width: 720px;
+}
+.section-head h2 {
+  font-size: var(--fs-4xl);
+  letter-spacing: var(--tracking-tight);
+}
+.section-head .section-tag { margin-bottom: 0; }
+
+/* Body offset to nav (fixed nav) */
+body { padding-top: var(--nav-h); }
+
+/* ---------- Scroll-driven animations (CSS native) ---------- */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Fallback (sin scroll-timeline support): solo aparecen sin animación */
+@supports not (animation-timeline: view()) {
+  .reveal { opacity: 1; }
+}
