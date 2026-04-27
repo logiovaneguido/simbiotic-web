@@ -1,0 +1,11 @@
+# SIMBIOTIC · simbiotic.io
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Páginas internas que no deben indexarse
+Disallow: /design-system.html
+Disallow: /api/
+
+Sitemap: https://simbiotic.io/sitemap.xml

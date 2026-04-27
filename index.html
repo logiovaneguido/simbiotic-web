@@ -3,16 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="SIMBIOTIC — Consultora de AI & Martech en Buenos Aires. Diseñamos y operamos sistemas de inteligencia artificial, datos y tecnología de marketing que crecen con tu negocio.">
+  <meta name="description" content="SIMBIOTIC — Consultora de AI & Martech en Buenos Aires. Diseñamos y operamos sistemas de inteligencia artificial, datos y tecnología de marketing para empresas que crecen en serio.">
   <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="author" content="SIMBIOTIC">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
-  <title>SIMBIOTIC — AI & Martech Consultancy</title>
+  <title>SIMBIOTIC — AI & Martech Consultancy · Buenos Aires</title>
 
   <link rel="canonical" href="https://simbiotic.io/">
-  <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="./public/pwa-512.png">
-  <link rel="apple-touch-icon" href="./public/pwa-512.png">
+
+  <!-- Favicons branded -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/public/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+  <link rel="manifest" href="/public/manifest.json">
 
   <!-- Anti-FOUC: aplica dark mode antes de renderizar si el usuario lo eligió. -->
   <script>
@@ -32,13 +38,70 @@
 
   <link rel="stylesheet" href="./css/main.css">
 
-  <!-- Open Graph (placeholder hasta generar OG image en Fase 6) -->
-  <meta property="og:title" content="SIMBIOTIC — AI & Martech Consultancy">
-  <meta property="og:description" content="Diseñamos sistemas de IA y martech que escalan. Consultora en Buenos Aires.">
-  <meta property="og:url" content="https://simbiotic.io/">
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/img/simbiotic-logo-blanco.png">
+  <meta property="og:site_name" content="SIMBIOTIC">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="SIMBIOTIC — AI & Martech Consultancy">
+  <meta property="og:description" content="Diseñamos sistemas de IA, datos y martech para empresas que crecen en serio. Buenos Aires.">
+  <meta property="og:url" content="https://simbiotic.io/">
+  <meta property="og:image" content="https://simbiotic.io/public/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SIMBIOTIC — AI & Martech Consultancy">
+
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SIMBIOTIC — AI & Martech Consultancy">
+  <meta name="twitter:description" content="Diseñamos sistemas de IA, datos y martech para empresas que crecen en serio.">
+  <meta name="twitter:image" content="https://simbiotic.io/public/og-image.png">
+
+  <!-- Schema.org structured data: Organization + Founders -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://simbiotic.io/#organization",
+        "name": "SIMBIOTIC",
+        "url": "https://simbiotic.io/",
+        "logo": "https://simbiotic.io/assets/img/simbiotic-logo-negro.png",
+        "image": "https://simbiotic.io/public/og-image.png",
+        "description": "Consultora de AI & Martech en Buenos Aires.",
+        "email": "hola@simbiotic.io",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Buenos Aires",
+          "addressCountry": "AR"
+        },
+        "founder": [
+          { "@type": "Person", "name": "Guido Logiovane", "jobTitle": "Director Product & Marketing" },
+          { "@type": "Person", "name": "Francisco de Villalobos", "jobTitle": "Director AI & Machine Learning" },
+          { "@type": "Person", "name": "Manuel Massonneau", "jobTitle": "Director Creativo" }
+        ],
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Marketing Technology",
+          "Data Engineering",
+          "Predictive Modeling",
+          "Retail Media",
+          "Marketing Attribution",
+          "Autonomous Agents"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://simbiotic.io/#website",
+        "url": "https://simbiotic.io/",
+        "name": "SIMBIOTIC",
+        "publisher": { "@id": "https://simbiotic.io/#organization" },
+        "inLanguage": "es-AR"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
