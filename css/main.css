@@ -159,6 +159,8 @@ body { padding-top: var(--nav-h); }
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
+/* Si hay imagen real, ocultar el label overlay */
+.case-page-media:has(img)::after { content: none; }
 .case-page-media img {
   width: 100%;
   height: 100%;
