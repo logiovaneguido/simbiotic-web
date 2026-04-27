@@ -6,16 +6,14 @@
   <title>SIMBIOTIC · Design System</title>
   <meta name="robots" content="noindex, nofollow">
 
-  <!-- Anti-FOUC: aplica el tema ANTES de renderizar. Inline a propósito. -->
+  <!-- Anti-FOUC: aplica dark mode ANTES de renderizar si el usuario lo eligió.
+       Default = light (no se setea atributo). Inline a propósito. -->
   <script>
     (function () {
       try {
-        var stored = localStorage.getItem("simbiotic-theme");
-        if (stored === "dark" || stored === "light") {
-          document.documentElement.setAttribute("data-theme", stored);
+        if (localStorage.getItem("simbiotic-theme") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
         }
-        // Si no hay preferencia guardada, dejamos que CSS @media (prefers-color-scheme)
-        // y el default (dark) se encarguen. No tocamos el atributo.
       } catch (_) { /* localStorage puede fallar en privado/iframes */ }
     })();
   </script>

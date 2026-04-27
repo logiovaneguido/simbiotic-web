@@ -1,7 +1,8 @@
 /* ============================================================
    SIMBIOTIC · Design Tokens
-   Variables CSS para dark/light mode con auto + override.
-   La aplicación del modo se hace en <html data-theme="dark|light">.
+   Variables CSS para light/dark mode.
+   Default: LIGHT. Dark solo si <html data-theme="dark">.
+   No se sigue prefers-color-scheme del OS por decisión de marca.
    ============================================================ */
 
 :root {
@@ -73,51 +74,15 @@
   --z-toast:   80;
 
   /* ---------- Marca (cross-mode) ---------- */
-  --brand-olive: #c8c87a;       /* acento cálido principal */
+  --brand-olive: #c8c87a;       /* acento cálido para dark mode */
   --brand-olive-deep: #6b6b2e;  /* acento para contraste sobre light */
 }
 
 /* ============================================================
-   DARK MODE (default)
+   LIGHT MODE (DEFAULT)
+   Se aplica cuando NO hay data-theme o cuando data-theme="light".
    ============================================================ */
 :root,
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --bg:               #0a0a0a;
-  --bg-subtle:        #0d0d0d;
-  --surface:          #111111;
-  --surface-elevated: #181818;
-  --surface-hover:    #1c1c1c;
-
-  --border:         #262626;
-  --border-subtle:  #1a1a1a;
-  --border-strong:  #333333;
-
-  --text:           #ededed;
-  --text-muted:     #a1a1a1;
-  --text-subtle:    #666666;
-  --text-on-accent: #0a0a0a;
-
-  --accent:         var(--brand-olive);
-  --accent-hover:   #d4d486;
-  --accent-soft:    rgba(200, 200, 122, 0.08);
-  --accent-glow:    rgba(200, 200, 122, 0.18);
-
-  --shadow-sm:  0 1px 2px rgba(0,0,0,0.4);
-  --shadow-md:  0 8px 24px rgba(0,0,0,0.5);
-  --shadow-lg:  0 24px 60px rgba(0,0,0,0.6);
-  --shadow-glow:0 0 80px var(--accent-glow);
-
-  /* Gradient mesh para hero (sutil, no over-the-top) */
-  --hero-mesh:
-    radial-gradient(ellipse 80% 60% at 80% 20%, rgba(200, 200, 122, 0.08), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(200, 200, 122, 0.04), transparent 60%);
-}
-
-/* ============================================================
-   LIGHT MODE
-   ============================================================ */
 :root[data-theme="light"] {
   color-scheme: light;
 
@@ -127,24 +92,24 @@
   --surface-elevated: #ffffff;
   --surface-hover:    #f5f5ee;
 
-  --border:         #e6e6dd;
-  --border-subtle:  #f0f0e8;
-  --border-strong:  #d4d4c8;
+  --border:           #e6e6dd;
+  --border-subtle:    #f0f0e8;
+  --border-strong:    #d4d4c8;
 
-  --text:           #0a0a0a;
-  --text-muted:     #555555;
-  --text-subtle:    #8a8a8a;
-  --text-on-accent: #ffffff;
+  --text:             #0a0a0a;
+  --text-muted:       #555555;
+  --text-subtle:      #8a8a8a;
+  --text-on-accent:   #ffffff;
 
-  --accent:         var(--brand-olive-deep);
-  --accent-hover:   #585823;
-  --accent-soft:    rgba(107, 107, 46, 0.08);
-  --accent-glow:    rgba(107, 107, 46, 0.14);
+  --accent:           var(--brand-olive-deep);
+  --accent-hover:     #585823;
+  --accent-soft:      rgba(107, 107, 46, 0.08);
+  --accent-glow:      rgba(107, 107, 46, 0.14);
 
-  --shadow-sm:  0 1px 2px rgba(20,20,20,0.06);
-  --shadow-md:  0 4px 16px rgba(20,20,20,0.08);
-  --shadow-lg:  0 16px 40px rgba(20,20,20,0.10);
-  --shadow-glow:0 0 60px var(--accent-glow);
+  --shadow-sm:        0 1px 2px rgba(20,20,20,0.06);
+  --shadow-md:        0 4px 16px rgba(20,20,20,0.08);
+  --shadow-lg:        0 16px 40px rgba(20,20,20,0.10);
+  --shadow-glow:      0 0 60px var(--accent-glow);
 
   --hero-mesh:
     radial-gradient(ellipse 80% 60% at 80% 20%, rgba(107, 107, 46, 0.10), transparent 60%),
@@ -152,36 +117,38 @@
 }
 
 /* ============================================================
-   SYSTEM PREFERENCE FALLBACK
-   Si el usuario NO eligió tema (no hay data-theme explícito),
-   sigue el OS via prefers-color-scheme. Esto se aplica con JS;
-   acá dejamos un fallback declarativo por si el JS falla.
+   DARK MODE (override manual)
+   Solo se aplica cuando el usuario hace toggle explícito.
    ============================================================ */
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) {
-    color-scheme: light;
-    --bg:               #fafaf7;
-    --bg-subtle:        #f5f5ee;
-    --surface:          #ffffff;
-    --surface-elevated: #ffffff;
-    --surface-hover:    #f5f5ee;
-    --border:           #e6e6dd;
-    --border-subtle:    #f0f0e8;
-    --border-strong:    #d4d4c8;
-    --text:             #0a0a0a;
-    --text-muted:       #555555;
-    --text-subtle:      #8a8a8a;
-    --text-on-accent:   #ffffff;
-    --accent:           var(--brand-olive-deep);
-    --accent-hover:     #585823;
-    --accent-soft:      rgba(107, 107, 46, 0.08);
-    --accent-glow:      rgba(107, 107, 46, 0.14);
-    --shadow-sm:        0 1px 2px rgba(20,20,20,0.06);
-    --shadow-md:        0 4px 16px rgba(20,20,20,0.08);
-    --shadow-lg:        0 16px 40px rgba(20,20,20,0.10);
-    --shadow-glow:      0 0 60px var(--accent-glow);
-    --hero-mesh:
-      radial-gradient(ellipse 80% 60% at 80% 20%, rgba(107, 107, 46, 0.10), transparent 60%),
-      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(107, 107, 46, 0.05), transparent 60%);
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:               #0a0a0a;
+  --bg-subtle:        #0d0d0d;
+  --surface:          #111111;
+  --surface-elevated: #181818;
+  --surface-hover:    #1c1c1c;
+
+  --border:           #262626;
+  --border-subtle:    #1a1a1a;
+  --border-strong:    #333333;
+
+  --text:             #ededed;
+  --text-muted:       #a1a1a1;
+  --text-subtle:      #666666;
+  --text-on-accent:   #0a0a0a;
+
+  --accent:           var(--brand-olive);
+  --accent-hover:     #d4d486;
+  --accent-soft:      rgba(200, 200, 122, 0.08);
+  --accent-glow:      rgba(200, 200, 122, 0.18);
+
+  --shadow-sm:        0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:        0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg:        0 24px 60px rgba(0,0,0,0.6);
+  --shadow-glow:      0 0 80px var(--accent-glow);
+
+  --hero-mesh:
+    radial-gradient(ellipse 80% 60% at 80% 20%, rgba(200, 200, 122, 0.08), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(200, 200, 122, 0.04), transparent 60%);
 }

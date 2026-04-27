@@ -245,15 +245,11 @@
 }
 .nav-logo img { height: 100%; width: auto; }
 
-/* Logo swap: blanco para dark, negro para light. Respeta data-theme y OS. */
+/* Logo swap: light (default) muestra logo NEGRO; dark muestra BLANCO. */
 .logo-dark, .logo-light { display: none; }
+.logo-light                       { display: block; }  /* default light */
 :root[data-theme="dark"]  .logo-dark  { display: block; }
-:root[data-theme="light"] .logo-light { display: block; }
-:root:not([data-theme])   .logo-dark  { display: block; }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .logo-dark  { display: none; }
-  :root:not([data-theme]) .logo-light { display: block; }
-}
+:root[data-theme="dark"]  .logo-light { display: none; }
 
 .nav-links {
   display: flex;
@@ -536,12 +532,61 @@ body.has-mega-open .nav-mega-backdrop {
     opacity: 1;
     pointer-events: auto;
   }
+  /* Mega-menu compacto en mobile: solo lista de links, sin previews ricos.
+     Evita que el contenido empuje el resto del drawer fuera de pantalla. */
   .nav-mega-inner {
     grid-template-columns: 1fr !important;
-    padding: var(--space-4) 0 var(--space-5);
-    gap: var(--space-4);
+    padding: var(--space-2) 0 var(--space-3);
+    gap: 0;
   }
-  .nav-mega-feature { min-height: 180px; }
+  /* Feature panel: pasa de card alta a row compacto (solo título). */
+  .nav-mega-feature {
+    min-height: 0;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .nav-mega-feature::before { display: none; }
+  .nav-mega-feature h3 { font-size: var(--fs-base); margin-bottom: 0; }
+  .nav-mega-feature p,
+  .nav-mega-feature .tag { display: none; }
+
+  /* Listas: solo títulos, sin descripciones ni encabezados de sección. */
+  .nav-mega-list-title { display: none; }
+  .nav-mega-link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  .nav-mega-link strong { font-size: var(--fs-base); font-weight: 500; }
+  .nav-mega-link span { display: none; }
+
+  /* Project tiles: sin thumbnail, solo título + meta corta. */
+  .nav-mega-tile-media { display: none; }
+  .nav-mega-tile {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--space-3);
+    transition: background var(--d-fast) var(--ease-out);
+  }
+  .nav-mega-tile:hover {
+    transform: none;
+    background: var(--surface-hover);
+  }
+  .nav-mega-tile-num {
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+  .nav-mega-tile-title {
+    font-size: var(--fs-base);
+    font-weight: 500;
+    margin: 0;
+  }
+  .nav-mega-tile-meta { display: none; }
+
   .nav-mega-backdrop { display: none; }
 }
 
@@ -571,13 +616,11 @@ body.has-mega-open .nav-mega-backdrop {
 .theme-toggle svg { width: 16px; height: 16px; }
 .theme-toggle .icon-light,
 .theme-toggle .icon-dark { display: none; }
+/* En light (default), el botón muestra LUNA (clickeás para ir a dark). */
+.theme-toggle .icon-dark { display: block; }
+/* En dark, mostramos SOL (clickeás para volver a light). */
+:root[data-theme="dark"] .theme-toggle .icon-dark  { display: none; }
 :root[data-theme="dark"] .theme-toggle .icon-light { display: block; }
-:root[data-theme="light"] .theme-toggle .icon-dark { display: block; }
-:root:not([data-theme]) .theme-toggle .icon-light { display: block; }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .theme-toggle .icon-light { display: none; }
-  :root:not([data-theme]) .theme-toggle .icon-dark { display: block; }
-}
 
 /* Mobile menu toggle (hamburger) */
 .nav-toggle {
@@ -689,11 +732,6 @@ body.has-mega-open .nav-mega-backdrop {
 }
 :root[data-theme="dark"] .client-logo {
   filter: grayscale(1) brightness(0) invert(0.85);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) .client-logo {
-    filter: grayscale(1) brightness(0) invert(0.85);
-  }
 }
 
 /* ============================================================
