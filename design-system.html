@@ -57,9 +57,75 @@
       </a>
 
       <ul class="nav-links">
-        <li><a class="nav-link" href="#typography">Tipografía</a></li>
-        <li><a class="nav-link" href="#colors">Colores</a></li>
-        <li><a class="nav-link" href="#components">Componentes</a></li>
+        <!-- Mega-menu: Servicios -->
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Servicios</button>
+          <div class="nav-mega nav-mega--services">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-feature" href="#">
+                <span class="tag tag-accent">destacado</span>
+                <h3>AI Strategy</h3>
+                <p>Hojas de ruta para integrar IA en operaciones, marketing y producto. Foco en ROI y adopción real.</p>
+              </a>
+              <div>
+                <p class="nav-mega-list-title">capacidades</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="#">
+                    <strong>Modelos predictivos</strong>
+                    <span>Forecasting, churn, LTV, propensión</span>
+                  </a></li>
+                  <li><a class="nav-mega-link" href="#">
+                    <strong>Martech & Data</strong>
+                    <span>CDP, server-side tagging, atribución</span>
+                  </a></li>
+                  <li><a class="nav-mega-link" href="#">
+                    <strong>Agentes autónomos</strong>
+                    <span>Reportes, briefs, optimización de bids</span>
+                  </a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="nav-mega-list-title">industrias</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="#"><strong>Retail</strong><span>E-commerce, retail media, pricing</span></a></li>
+                  <li><a class="nav-mega-link" href="#"><strong>Telco</strong><span>Churn, upsell, retención</span></a></li>
+                  <li><a class="nav-mega-link" href="#"><strong>Financial Services</strong><span>Fraud, scoring, growth</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!-- Mega-menu: Proyectos (con thumbnails visuales) -->
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Proyectos</button>
+          <div class="nav-mega nav-mega--projects">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-tile" href="#">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 01</span>
+                <h4 class="nav-mega-tile-title">Frávega Retail Media</h4>
+                <p class="nav-mega-tile-meta">Retail media network · 4.2× ROAS</p>
+              </a>
+              <a class="nav-mega-tile" href="#">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 02</span>
+                <h4 class="nav-mega-tile-title">Frávega Media Mix Opt.</h4>
+                <p class="nav-mega-tile-meta">ML budget allocation · −23% CPS</p>
+              </a>
+              <a class="nav-mega-tile" href="#">
+                <div class="nav-mega-tile-media" data-placeholder="izzi"></div>
+                <span class="nav-mega-tile-num">/ 03</span>
+                <h4 class="nav-mega-tile-title">izzi Churn</h4>
+                <p class="nav-mega-tile-meta">Predictive churn · −15% churn</p>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="#typography">Tipografía</a></li>
+        <li class="nav-item"><a class="nav-link" href="#colors">Colores</a></li>
+        <li class="nav-item"><a class="nav-link" href="#components">Componentes</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -316,18 +382,6 @@
   </footer>
 
   <script src="./js/theme-toggle.js" defer></script>
-  <script>
-    // Mobile nav toggle (mínimo viable para preview)
-    document.addEventListener("DOMContentLoaded", function () {
-      var nav = document.querySelector(".nav");
-      var btn = document.querySelector(".nav-toggle");
-      if (btn && nav) btn.addEventListener("click", function () {
-        nav.classList.toggle("is-open");
-        btn.classList.toggle("is-open");
-        var open = nav.classList.contains("is-open");
-        btn.setAttribute("aria-expanded", String(open));
-      });
-    });
-  </script>
+  <script src="./js/nav.js" defer></script>
 </body>
 </html>
