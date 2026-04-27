@@ -1,0 +1,25 @@
+/**
+ * SIMBIOTIC · Cloudflare Workers config
+ *
+ * Le dice a Cloudflare que este proyecto es un Worker con assets estáticos.
+ * - main: el archivo de entrada que maneja rutas dinámicas (/api/*)
+ * - assets.directory: dónde están los HTML/CSS/JS/images estáticos (raíz del repo)
+ * - assets.binding: nombre con el que el Worker accede a los assets (env.ASSETS)
+ *
+ * Documentación: https://developers.cloudflare.com/workers/static-assets/
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "simbiotic-web",
+  "main": "_worker.js",
+  "compatibility_date": "2024-12-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
