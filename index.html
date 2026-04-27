@@ -447,28 +447,8 @@
 
   <script src="./js/theme-toggle.js" defer></script>
   <script src="./js/nav.js" defer></script>
+  <script src="./js/form.js" defer></script>
   <script>
-    // ============================================================
-    // Form: progressive enhancement.
-    // - Sin JS: el form usa action="mailto:" y abre el cliente de email.
-    // - Con JS: en Fase 5 reemplazamos por fetch a /api/contact.
-    // - Por ahora: validación básica + mensaje de "abriendo email".
-    // ============================================================
-    document.addEventListener("DOMContentLoaded", function () {
-      var form = document.getElementById("contact-form");
-      var status = document.getElementById("cf-status");
-      if (!form) return;
-      form.addEventListener("submit", function (e) {
-        // Honeypot check
-        if (form.elements.website && form.elements.website.value) {
-          e.preventDefault();
-          return;
-        }
-        if (status) status.textContent = "Abriendo tu cliente de email…";
-        // Fase 5: aquí va e.preventDefault() + fetch('/api/contact', ...)
-      });
-    });
-
     // Smooth scroll para anchor links del nav (cierra mega-menu si abierto)
     document.addEventListener("click", function (e) {
       var link = e.target.closest('a[href^="#"]');

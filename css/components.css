@@ -210,6 +210,27 @@
   color: #e76f51;
 }
 
+/* Status inline del form (success / error / loading / warning) */
+[data-kind="success"] { color: var(--accent); font-weight: 500; }
+[data-kind="error"]   { color: #e76f51; font-weight: 500; }
+[data-kind="loading"] { color: var(--text-muted); }
+[data-kind="warning"] { color: #d4a017; }
+[data-kind="loading"]::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-loading 1.2s ease-in-out infinite;
+  vertical-align: middle;
+}
+@keyframes pulse-loading {
+  0%, 100% { opacity: 0.3; }
+  50%      { opacity: 1; }
+}
+
 /* ============================================================
    NAV
    ============================================================ */
