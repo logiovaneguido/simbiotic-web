@@ -93,6 +93,165 @@
 /* Body offset to nav (fixed nav) */
 body { padding-top: var(--nav-h); }
 
+/* ============================================================
+   PÁGINA DE CASO (/casos/*.html)
+   ============================================================ */
+
+/* Back link */
+.case-back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+  transition: color var(--d-fast) var(--ease-out);
+}
+.case-back:hover { color: var(--accent); }
+
+/* Hero del caso */
+.case-page-hero {
+  padding-block: var(--space-8) var(--space-6);
+}
+.case-page-hero h1 {
+  font-size: var(--fs-5xl);
+  letter-spacing: var(--tracking-tighter);
+  max-width: 18ch;
+  margin-block: var(--space-4);
+}
+.case-page-hero .case-lead {
+  font-size: var(--fs-xl);
+  color: var(--text-muted);
+  max-width: 60ch;
+  line-height: var(--lh-relaxed);
+}
+.case-page-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+/* Imagen / placeholder grande del caso */
+.case-page-media {
+  margin-block: var(--space-7) var(--space-8);
+  aspect-ratio: 21 / 9;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  background:
+    linear-gradient(135deg, var(--accent-soft), transparent 50%),
+    radial-gradient(ellipse at 70% 30%, var(--accent-glow), transparent 60%),
+    var(--surface-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.case-page-media::after {
+  content: attr(data-label);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-subtle);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+.case-page-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Body: 2 columnas (texto principal | resultados sticky aside) */
+.case-page-body {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .case-page-body { grid-template-columns: 1fr; gap: var(--space-7); }
+}
+
+.case-section + .case-section { margin-top: var(--space-7); }
+.case-section h2 {
+  font-size: var(--fs-2xl);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-4);
+}
+.case-section p {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--text);
+}
+.case-section p + p { margin-top: var(--space-4); }
+
+.case-results-aside {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--space-5));
+  padding: var(--space-6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+@media (max-width: 960px) {
+  .case-results-aside { position: static; }
+}
+.case-results-aside h2 {
+  font-size: var(--fs-lg);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+}
+.case-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5) var(--space-4);
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+}
+.result:nth-child(-n+2) { border-top: none; padding-top: 0; }
+.result-num {
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xl);
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  font-feature-settings: "tnum";
+}
+.result-label {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  line-height: var(--lh-base);
+}
+
+/* CTA final */
+.case-cta {
+  text-align: center;
+  padding-block: var(--space-9);
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+}
+.case-cta h2 {
+  font-size: var(--fs-4xl);
+  letter-spacing: var(--tracking-tight);
+  margin-block: var(--space-4) var(--space-5);
+}
+.case-cta p { max-width: 50ch; margin-inline: auto; }
+.case-cta .hero-actions { justify-content: center; }
+
 /* ---------- Scroll-driven animations (CSS native) ---------- */
 @supports (animation-timeline: view()) {
   .reveal {

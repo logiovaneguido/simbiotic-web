@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Cómo construimos la red de retail media de Frávega desde cero: 6 meses, 40+ marcas anunciantes, 4.2× ROAS y atribución end-to-end por primera vez.">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+  <title>Frávega Retail Media — SIMBIOTIC</title>
+  <link rel="canonical" href="https://simbiotic.io/casos/fravega-retail-media.html">
+  <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../public/pwa-512.png">
+
+  <script>
+    (function () {
+      try { if (localStorage.getItem("simbiotic-theme") === "dark")
+        document.documentElement.setAttribute("data-theme", "dark");
+      } catch (_) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../css/main.css">
+
+  <meta property="og:title" content="Frávega Retail Media — SIMBIOTIC">
+  <meta property="og:description" content="Cómo construimos la red de retail media de Frávega desde cero.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://simbiotic.io/casos/fravega-retail-media.html">
+  <meta property="og:image" content="../assets/img/simbiotic-logo-blanco.png">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Principal">
+    <div class="nav-inner">
+      <a href="../" class="nav-logo" aria-label="SIMBIOTIC — Inicio">
+        <img class="logo-dark"  src="../assets/img/simbiotic-logo-blanco.webp" alt="SIMBIOTIC" width="155" height="24">
+        <img class="logo-light" src="../assets/img/simbiotic-logo-negro.webp"  alt=""           width="155" height="24" aria-hidden="true">
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Servicios</button>
+          <div class="nav-mega nav-mega--services">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-feature" href="../#servicios">
+                <span class="tag tag-accent">destacado</span>
+                <h3>AI Strategy</h3>
+                <p>Hojas de ruta para integrar IA en operaciones, marketing y producto.</p>
+              </a>
+              <div>
+                <p class="nav-mega-list-title">capacidades</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="../#servicios"><strong>Modelos predictivos</strong><span>Forecasting, churn, LTV, propensión</span></a></li>
+                  <li><a class="nav-mega-link" href="../#servicios"><strong>Martech & Data</strong><span>CDP, server-side tagging, atribución</span></a></li>
+                  <li><a class="nav-mega-link" href="../#servicios"><strong>Agentes autónomos</strong><span>Reportes, briefs, optimización de bids</span></a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="nav-mega-list-title">industrias</p>
+                <ul class="nav-mega-list">
+                  <li><a class="nav-mega-link" href="../#proyectos"><strong>Retail</strong><span>E-commerce, retail media, pricing</span></a></li>
+                  <li><a class="nav-mega-link" href="../#proyectos"><strong>Telco</strong><span>Churn, upsell, retención</span></a></li>
+                  <li><a class="nav-mega-link" href="../#proyectos"><strong>Financial Services</strong><span>Fraud, scoring, growth</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item nav-item--mega">
+          <button class="nav-link" type="button">Proyectos</button>
+          <div class="nav-mega nav-mega--projects">
+            <div class="nav-mega-inner">
+              <a class="nav-mega-tile" href="./fravega-retail-media.html" aria-current="page">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 01</span>
+                <h4 class="nav-mega-tile-title">Frávega Retail Media</h4>
+                <p class="nav-mega-tile-meta">Retail media network · 4.2× ROAS</p>
+              </a>
+              <a class="nav-mega-tile" href="./fravega-media-mix.html">
+                <div class="nav-mega-tile-media" data-placeholder="Frávega"></div>
+                <span class="nav-mega-tile-num">/ 02</span>
+                <h4 class="nav-mega-tile-title">Frávega Media Mix Opt.</h4>
+                <p class="nav-mega-tile-meta">ML budget allocation · −23% CPS</p>
+              </a>
+              <a class="nav-mega-tile" href="./izzi-churn.html">
+                <div class="nav-mega-tile-media" data-placeholder="izzi"></div>
+                <span class="nav-mega-tile-num">/ 03</span>
+                <h4 class="nav-mega-tile-title">izzi Churn</h4>
+                <p class="nav-mega-tile-meta">Predictive churn · −15% churn</p>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="../#equipo">Equipo</a></li>
+        <li class="nav-item"><a class="nav-link" href="../#clientes">Clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="../#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Cambiar tema">
+          <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm" href="../#contacto">Hablar con el equipo</a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO DEL CASO -->
+    <section class="container case-page-hero">
+      <a href="../#proyectos" class="case-back">← Proyectos</a>
+      <div class="case-page-hero-meta">
+        <span class="tag">/ 01 · caso</span>
+        <span class="tag tag-accent">Frávega · Retail Media</span>
+      </div>
+      <h1>Construir una red de retail media desde cero.</h1>
+      <p class="case-lead">
+        Cómo transformamos millones de visitas mensuales en una plataforma
+        publicitaria con atribución end-to-end y ROAS comprobable.
+      </p>
+      <div class="case-page-media" data-label="Frávega · 2024"></div>
+    </section>
+
+    <!-- CONTENIDO -->
+    <section class="container case-page-body">
+      <div>
+        <article class="case-section">
+          <h2>Desafío</h2>
+          <p>
+            Frávega contaba con millones de visitas mensuales y una base de
+            compradores altamente cualificada, pero sin infraestructura para
+            monetizar ese activo con marcas anunciantes. La inversión publicitaria
+            de proveedores fluía hacia plataformas externas sin atribución ni
+            control propios.
+          </p>
+          <p>
+            La oportunidad era clara: convertir el e-commerce en un canal media-first
+            en sí mismo. La complejidad era construirlo en un mercado donde el
+            retail media todavía no estaba estandarizado, sin perder la experiencia
+            de compra ni saturar el sitio de publicidad.
+          </p>
+        </article>
+
+        <article class="case-section">
+          <h2>Solución</h2>
+          <p>
+            Diseñamos e implementamos una plataforma de retail media end-to-end:
+            arquitectura de first-party data, modelo de audiencias segmentadas
+            por comportamiento de compra, formatos publicitarios integrados en el
+            funnel y un dashboard de reporting en tiempo real para anunciantes.
+          </p>
+          <p>
+            Conectamos los datos transaccionales con herramientas de activación
+            programática para cerrar el loop de atribución: por primera vez,
+            las marcas pudieron medir el impacto real de cada peso invertido en
+            ventas concretas dentro del retailer.
+          </p>
+        </article>
+      </div>
+
+      <aside class="case-results-aside">
+        <h2>Resultados</h2>
+        <div class="case-results-grid">
+          <div class="result">
+            <span class="result-num">6 meses</span>
+            <span class="result-label">de diagnóstico a plataforma operativa</span>
+          </div>
+          <div class="result">
+            <span class="result-num">+40</span>
+            <span class="result-label">marcas anunciantes activas</span>
+          </div>
+          <div class="result">
+            <span class="result-num">4.2×</span>
+            <span class="result-label">ROAS promedio en campañas in-platform</span>
+          </div>
+          <div class="result">
+            <span class="result-num">100%</span>
+            <span class="result-label">atribución end-to-end por primera vez</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- RELACIONADOS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">otros proyectos</span>
+          <h2>Seguí explorando.</h2>
+        </div>
+        <div class="grid-2">
+          <a class="case-card" href="./fravega-media-mix.html">
+            <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
+              <span class="mono text-subtle">Frávega</span>
+            </div>
+            <div class="case-card-body">
+              <span class="case-card-num">/ 02</span>
+              <h3 class="case-card-title">Frávega Media Mix Opt.</h3>
+              <p class="case-card-meta">ML para asignación de presupuesto · −23% CPS</p>
+            </div>
+          </a>
+          <a class="case-card" href="./izzi-churn.html">
+            <div class="case-card-media" style="background: linear-gradient(135deg, var(--accent-soft), transparent 60%), var(--surface-elevated);">
+              <span class="mono text-subtle">izzi</span>
+            </div>
+            <div class="case-card-body">
+              <span class="case-card-num">/ 03</span>
+              <h3 class="case-card-title">izzi Churn Prediction</h3>
+              <p class="case-card-meta">Modelo predictivo de churn · −15% churn rate</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container case-cta hero-mesh">
+      <span class="section-tag">próximo paso</span>
+      <h2>Construyamos algo<br>extraordinario.</h2>
+      <p class="text-muted">Contanos qué problema querés resolver. Te respondemos en menos de 48 horas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg btn-arrow" href="../#contacto">Hablar con el equipo</a>
+        <a class="btn btn-ghost btn-lg" href="../#proyectos">Ver más casos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="../" class="nav-logo" aria-label="SIMBIOTIC">
+        <img class="logo-dark"  src="../assets/img/simbiotic-logo-blanco.webp" alt="SIMBIOTIC" width="120" height="19">
+        <img class="logo-light" src="../assets/img/simbiotic-logo-negro.webp"  alt=""           width="120" height="19" aria-hidden="true">
+      </a>
+      <nav aria-label="Footer">
+        <ul style="display: flex; gap: var(--space-5); list-style: none; padding: 0; margin: 0; flex-wrap: wrap;">
+          <li><a class="nav-link" href="../#servicios">Servicios</a></li>
+          <li><a class="nav-link" href="../#proyectos">Proyectos</a></li>
+          <li><a class="nav-link" href="../#equipo">Equipo</a></li>
+          <li><a class="nav-link" href="../#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <span class="footer-meta">© 2026 SIMBIOTIC · Buenos Aires</span>
+    </div>
+  </footer>
+
+  <script src="../js/theme-toggle.js" defer></script>
+  <script src="../js/nav.js" defer></script>
+</body>
+</html>
