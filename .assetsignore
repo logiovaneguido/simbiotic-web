@@ -1,0 +1,37 @@
+# SIMBIOTIC · .assetsignore
+# Lista de archivos del repo que NO se exponen como assets públicos.
+# Sintaxis tipo .gitignore. Cloudflare Wrangler lo lee al deployar.
+
+# ---------- Server-side / source code ----------
+# El Worker entry-point y sus dependencias deben ejecutarse en el servidor,
+# no servirse como archivos estáticos descargables.
+_worker.js
+functions/
+
+# ---------- Config files (no son assets) ----------
+wrangler.jsonc
+wrangler.toml
+.wrangler/
+
+# ---------- Local dev / secretos ----------
+.dev.vars
+.env
+.env.*
+
+# ---------- IDE / OS / control de versiones ----------
+.git/
+.gitattributes
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ---------- Claude Code ----------
+.claude/
+
+# ---------- Plan files internos (no van a producción) ----------
+*.md.plan
+plans/
