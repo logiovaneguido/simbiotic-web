@@ -624,14 +624,38 @@ body.has-mega-open .nav-mega-backdrop {
     display: flex;
     position: fixed;
     inset: var(--nav-h) 0 0 0;
+    z-index: var(--z-nav);
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-5);
-    padding: var(--space-7) var(--container-pad);
-    background: var(--bg);
-    border-bottom: 1px solid var(--border-subtle);
+    align-items: stretch;
+    gap: var(--space-3);
+    padding: var(--space-6) var(--container-pad) var(--space-8);
+    /* Fondo OPACO: rompe transparencia del .nav padre */
+    background-color: var(--bg);
+    background-image: var(--hero-mesh);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
-  .nav.is-open .nav-link { font-size: var(--fs-2xl); color: var(--text); }
+  :root[data-theme="light"] .nav.is-open .nav-links {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+  }
+
+  .nav.is-open .nav-link {
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    color: var(--text);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: left;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* En el drawer, los <li> ocupan todo el ancho */
+  .nav.is-open .nav-item { width: 100%; }
 }
 
 /* ============================================================
