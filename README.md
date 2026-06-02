@@ -93,8 +93,8 @@ cae automáticamente al fallback `mailto:`. Esto permite deploy gradual.
 
 ## Equipo
 
-- **Guido Logiovane** — Director Product & Marketing
-- **Francisco de Villalobos** — Director AI & Machine Learning
+- **Guido Logiovane** — CEO
+- **Francisco de Villalobos** — CPO
 
 ## Estado del proyecto
 
