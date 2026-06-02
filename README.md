@@ -27,7 +27,7 @@ simbiotic-web/
 ├── assets/
 │   ├── img/
 │   │   ├── simbiotic-logo-{blanco,negro}.{webp,png}
-│   │   ├── team/                    # guido, francisco, manuel (.webp)
+│   │   ├── team/                    # guido, francisco (.webp)
 │   │   ├── clients/                 # 6 logos: fravega, fmf, banhi, kuati, trent, bierhaus
 │   │   └── cases/                   # (vacío — placeholders gradient por ahora)
 │   └── SIMBIOTIC_Brand_Kit_v2.pdf
@@ -95,7 +95,6 @@ cae automáticamente al fallback `mailto:`. Esto permite deploy gradual.
 
 - **Guido Logiovane** — Director Product & Marketing
 - **Francisco de Villalobos** — Director AI & Machine Learning
-- **Manuel Massonneau** — Director Creativo
 
 ## Estado del proyecto
 
